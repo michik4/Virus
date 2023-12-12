@@ -1,27 +1,10 @@
-from Game.deck import Deck
+from Game.Victim.victimDeck import VictimDeck
 
-class Victim:
-    def __init__(self):
-       
-       #[0]=immun [1]=DMG
-       self.head = [0, 0]
-       self.body = [0, 0]
-       self.legs = [0, 0]
+class Victim(VictimDeck):
+    def __init__(self, Players):
+       self.victimImun = [0, 0, 0] 
+       self.victimInfects = [[0,0,0] for i in range(len(Players))] 
        #head[0] body[1] legs[2]
-       self.victim = [self.head, self.body, self.legs] 
-    def SetCards(self, cards):
-        if(type(cards) == str or type(cards) == list):
-            for val in cards:
-                typeCard = Deck.CardKeyType(val)
-                
-                if(typeCard == 0):
-                    self.victim[Deck.CardKeyZone(val)][1] += Deck.CardKeyVal(val)
-                elif(typeCard == 1):
-                    self.victim[Deck.CardKeyZone(val)][0] -= Deck.CardKeyVal(val)    
-                elif(typeCard == 2):
-                    self.victim[Deck.CardKeyZone(val)][0] += Deck.CardKeyVal(val)#TYPE 
-            return cards
-        else:
-            raise Exception(f"Victim.SetCards: Cards: Unknow Type {cards}")    
-    def INFO(self):
-        print(f"head = \t{self.head}\nbody = \t{self.body}\nlegs = \t{self.legs}")
+
+    def PrintInfect(self):
+        print(self.victimInfects)   

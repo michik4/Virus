@@ -9,14 +9,13 @@ class Game:
         print("HOW PLAYERS: ")
         cPlayers = 3 #int(input())
         Players = [Player() for i in range(0,cPlayers)]
-        main = Game.__init__(Game, Players)
-        main.Game(main)
+        main = Game(Players)
+        main.Game()
 
     def __init__(self, Players):
         self.players = Players
-        self.victim = Victim
+        self.victim = Victim(Players)
         self.mainTable = Table(Players, self.victim)
-        return self
 
     def Game(self):
         Proc = True
@@ -24,6 +23,10 @@ class Game:
             for player in self.players:
                 player.GetCardsFromDeck("start")
             self.mainTable.TableInfo()
+            card = Deck.CardKeyGen()
+            print(card)
+            self.victim.SetCards(card, 1)
+            self.victim.PrintInfect()
             Proc = False
 
             
