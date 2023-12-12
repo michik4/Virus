@@ -72,3 +72,7 @@ class Deck:
     @staticmethod
     def PrintCard(card):
         print(f"type card \t= \t{Deck.CardKeyType(card)}\nzone card \t= \t{Deck.CardKeyZone(card)}\nval card \t= \t{Deck.CardKeyVal(card)}")  
+
+    @staticmethod
+    def StartDeck():
+        return Deck.CardKeyGen(6)
