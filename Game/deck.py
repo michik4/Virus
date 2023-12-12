@@ -21,9 +21,7 @@ class Deck:
             key = ""
             form = [typeCard, zoneCard, valCard]
             isList = (value > 1)
-            for i, val in enumerate(form):
-                """ if form[i] == 0:
-                    form[i] = randint(0, 2) """
+            for i in range(len(form)):
                 match i:
                     case 0:
                         if(typeCard == None): form[i] = randint(0,2)
@@ -35,7 +33,7 @@ class Deck:
                         if(valCard == None): form[i] = randint(0,25) + 0
                         else: form[i] = valCard   
                             
-            for i, val in enumerate(form):    
+            for i in range(len(form)):    
                 key = key + str(form[i]) + "x"
             if(isList):
                 retCards.append(key)
@@ -49,7 +47,7 @@ class Deck:
         transcript = []
         temp = ""
 
-        for i, value in enumerate(key):
+        for i in range(len(key)):
             if key[i] != "x":
                 temp = temp + key[i]
             else:

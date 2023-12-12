@@ -10,7 +10,7 @@ class PlayerDeck:
         while(counter < unique):
             cards.append(Deck.CardKeyGen(1,))
             counter+=1
-        for i, val in enumerate(cards):
+        for i in range(len(cards)):
             self.playerCards.append(cards[i])
         return cards 
     
