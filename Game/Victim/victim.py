@@ -19,15 +19,15 @@ class Victim:
                 self.victim[Deck.CardKeyZone(cards)][0] += Deck.CardKeyVal(cards)
             return cards    
         elif(type(cards) == list):
-            for i, val in enumerate(cards):
-                typeCard = Deck.CardKeyType(cards[i])
+            for val in cards:
+                typeCard = Deck.CardKeyType(val)
                 
                 if(typeCard == 0):
-                    self.victim[Deck.CardKeyZone(cards[i])][1] += Deck.CardKeyVal(cards[i])
+                    self.victim[Deck.CardKeyZone(val)][1] += Deck.CardKeyVal(val)
                 elif(typeCard == 1):
-                    self.victim[Deck.CardKeyZone(cards[i])][0] -= Deck.CardKeyVal(cards[i])    
+                    self.victim[Deck.CardKeyZone(val)][0] -= Deck.CardKeyVal(val)    
                 elif(typeCard == 2):
-                    self.victim[Deck.CardKeyZone(cards[i])][0] += Deck.CardKeyVal(cards[i])#TYPE 
+                    self.victim[Deck.CardKeyZone(val)][0] += Deck.CardKeyVal(val)#TYPE 
             return cards
         else:
             raise Exception(f"Victim.SetCards: Unknow Type {cards}")    
